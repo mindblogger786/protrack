@@ -9,7 +9,7 @@ function AdminAttendanceRequests() {
 
   const fetchRequests = async () => {
     try {
-      const res = await axios.get('http://127.0.0.1:8000/api/attendance/admin/attendance-requests/', {
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/admin/attendance-requests/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setRequests(res.data);
@@ -23,7 +23,7 @@ function AdminAttendanceRequests() {
   }, []);
 
   const handleAction = async (id, target, action) => {
-    await axios.patch(`http://127.0.0.1:8000/api/attendance/admin/attendance-requests/${id}/update/`, {
+    await axios.patch(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/admin/attendance-requests/${id}/update/`, {
       action: action,
       target: target
     }, {

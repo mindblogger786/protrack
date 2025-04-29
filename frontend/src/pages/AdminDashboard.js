@@ -15,7 +15,7 @@ function AdminDashboard() {
   // Fetch user and check role
   const fetchUser = async () => {
     try {
-      const res = await axios.get('http://127.0.0.1:8000/api/users/me/', {
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/me/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -36,7 +36,7 @@ function AdminDashboard() {
   const fetchAttendance = async () => {
     try {
       const res = await axios.get(
-        `http://127.0.0.1:8000/api/attendance/records/?month=${month}&year=${year}`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/attendance/records/?month=${month}&year=${year}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setAttendance(res.data);

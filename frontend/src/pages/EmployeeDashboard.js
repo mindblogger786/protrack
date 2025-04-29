@@ -13,14 +13,14 @@ function EmployeeDashboard() {
   const token = localStorage.getItem('access');
   
   const fetchUser = async () => {
-    const res = await axios.get('http://127.0.0.1:8000/api/users/me/', {
+    const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/me/`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setUser(res.data);
   };
 
   const fetchAttendance = async () => {
-    const res = await axios.get(`http://127.0.0.1:8000/api/attendance/records/?month=${month}&year=${year}`, {
+    const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/records/?month=${month}&year=${year}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setAttendance(res.data);
@@ -46,7 +46,7 @@ function EmployeeDashboard() {
 
   const handlePunch = async () => {
     const endpoint = punchedIn ? 'punch-out' : 'punch-in';
-    await axios.post(`http://127.0.0.1:8000/api/attendance/${endpoint}/`, {}, {
+    await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/${endpoint}/`, {}, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setPunchedIn(!punchedIn);
@@ -59,7 +59,7 @@ function EmployeeDashboard() {
     const token = localStorage.getItem('access');
   
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/attendance/export/?month=${exportMonth}&year=${exportYear}`, {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/export/?month=${exportMonth}&year=${exportYear}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

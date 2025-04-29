@@ -22,7 +22,7 @@ function EditEmployeePage() {
 
   const fetchEmployee = async () => {
     try {
-      const res = await axios.get(`http://127.0.0.1:8000/api/users/${id}/`, {
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/${id}/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEmployee(res.data);
@@ -39,7 +39,7 @@ function EditEmployeePage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://127.0.0.1:8000/api/users/${id}/`, employee, {
+      await axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/users/${id}/`, employee, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('✅ Employee details updated successfully!');

@@ -22,7 +22,7 @@ function ApplyLeavePage() {
     setLoading(true);
     try {
       const res = await axios.post(
-        'http://127.0.0.1:8000/api/attendance/leave/apply-leave/',
+        `${process.env.REACT_APP_API_BASE_URL}/api/attendance/leave/apply-leave/`,
         {
           leave_type: leaveType,
           start_date: startDate,

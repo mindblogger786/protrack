@@ -9,7 +9,7 @@ function EmployeeListPage() {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get('http://127.0.0.1:8000/api/users/', {
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEmployees(res.data);

@@ -23,7 +23,7 @@ function RegisterEmployeePage() {
     e.preventDefault();
 
     try {
-      await axios.post('http://127.0.0.1:8000/api/users/register/', formData, {
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/users/register/`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'

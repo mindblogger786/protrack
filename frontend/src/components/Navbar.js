@@ -19,7 +19,7 @@ function Navbar() {
       const token = localStorage.getItem('access');
       if (token) {
         try {
-          const res = await fetch('http://127.0.0.1:8000/api/users/me/', {
+          const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/users/me/`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           const data = await res.json();
@@ -53,7 +53,7 @@ function Navbar() {
 
   const navigatetodashboard = async () => {
     try {
-      const userRes = await axios.get('http://127.0.0.1:8000/api/users/me/', {
+      const userRes = await axios.get('${process.env.REACT_APP_API_BASE_URL}/api/users/me/', {
         headers: { Authorization: `Bearer ${access}` }
       });
       

@@ -11,7 +11,7 @@ function MyLeaveRequests() {
 
   const fetchLeaves = async () => {
     try {
-      const res = await axios.get(`http://127.0.0.1:8000/api/attendance/leave/my-leaves/?month=${month}&year=${year}`, {
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/leave/my-leaves/?month=${month}&year=${year}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setLeaves(res.data);

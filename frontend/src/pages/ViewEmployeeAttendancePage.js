@@ -13,7 +13,7 @@ function ViewEmployeeAttendancePage() {
 
   const fetchAttendance = async () => {
     try {
-      const res = await axios.get(`http://127.0.0.1:8000/api/attendance/user/${employeeId}/?month=${month}&year=${year}`, {
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/user/${employeeId}/?month=${month}&year=${year}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAttendance(res.data);
@@ -28,7 +28,7 @@ function ViewEmployeeAttendancePage() {
 
   const handleAction = async (attendanceId, action) => {
     try {
-      await axios.post(`http://127.0.0.1:8000/api/attendance/update/${attendanceId}/`, 
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/update/${attendanceId}/`, 
         { action },
         { headers: { Authorization: `Bearer ${token}` } }
       );

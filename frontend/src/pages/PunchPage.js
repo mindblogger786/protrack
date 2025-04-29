@@ -41,7 +41,7 @@ function PunchPage() {
 
   const checkTodayPunchStatus = async () => {
     try {
-      const res = await axios.get('http://127.0.0.1:8000/api/attendance/records/', {
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/records/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -69,7 +69,7 @@ function PunchPage() {
     const endpoint = punchedIn ? 'punch-out' : 'punch-in';
   
     try {
-      await axios.post(`http://127.0.0.1:8000/api/attendance/${endpoint}/`, {
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/${endpoint}/`, {
         photo: image,
         location: location
       }, {
@@ -82,7 +82,7 @@ function PunchPage() {
       alert(`Successfully ${punchedIn ? 'punched out' : 'punched in'}!`);
       setPunchedIn(!punchedIn);
       
-      const userRes = await axios.get('http://127.0.0.1:8000/api/users/me/', {
+      const userRes = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/me/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       

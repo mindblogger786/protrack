@@ -19,7 +19,7 @@ function Login() {
 
     try {
       const res = await axios.post(
-        'http://127.0.0.1:8000/api/users/login/',
+        `${process.env.REACT_APP_API_BASE_URL}/api/users/login/`,
         { username, password },
         { headers: { 'Content-Type': 'application/json' } }
       );
@@ -28,7 +28,7 @@ function Login() {
       localStorage.setItem('access', access);
       localStorage.setItem('refresh', res.data.refresh);
 
-      const userRes = await axios.get('http://127.0.0.1:8000/api/users/me/', {
+      const userRes = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/me/`, {
         headers: { Authorization: `Bearer ${access}` }
       });
       
