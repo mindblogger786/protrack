@@ -1,0 +1,226 @@
+/* Theme & Reset */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f6ff;
+  transition: background-color 0.3s ease;
+}
+
+body.dark {
+  background-color: #121212;
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: #007bff;
+  color: white;
+  align-items: center;
+  box-shadow: 2px 2px 8px rgba(0,0,0,1);
+  border-radius: 15px;
+  width: 90%;
+  margin: 5px auto;
+}
+
+.nav-left h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.slogan {
+  font-size: 14px;
+  margin-left: 0px;
+  font-weight: 600;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-btn {
+  color: white;
+  text-decoration: none;
+  background: rgba(255,255,255,0.1);
+  font-weight: 600;
+  font-size: 19px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border: 1px solid #0056b3;
+}
+
+.nav-btn:hover {
+  background: #0056b3;
+}
+
+.toggle-btn {
+  background: rgba(255,255,255,0.1);
+  color: #007bff;
+  border: 1px solid #0056b3;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+
+.toggle-btn:hover {
+  background: #0056b3;
+}
+
+/* Login Form */
+.login-form {
+  max-width: 400px;
+  margin: 80px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+input {
+  width: 95%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+}
+
+.login-btn {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  animation: jump 0.5s ease-in-out;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+.login-links {
+  text-align: right;
+  margin-top: 15px;
+}
+
+.login-links a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes jump {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+/* CSS for Dashboards */
+
+.container {
+  margin-bottom: 50px;
+}
+
+.container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container li {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.container li a {
+  color: #007bff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.container li a:hover {
+  text-decoration: underline;
+  margin-left: 4px;
+}
+
+
+/* Webcam styling */
+.webcam:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.webcam div{
+  float: left;
+  width: 45%;
+  padding: 25px;
+}
+
+.webcam div:nth-child(2n) {
+  text-align: right;
+}
+
+button.orange-btn{
+  width: 100%;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+}
+
+.form-style {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 5px;
+}
+
+.form-style input,
+.form-style select {
+  display: block;
+  width: 90%;
+  margin-bottom: 12px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-style button {
+  width: 40%;
+  font-size: 18px;
+  display: block;
+  margin: auto;
+}

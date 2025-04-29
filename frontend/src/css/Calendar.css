@@ -1,0 +1,102 @@
+.filters {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.filters label {
+  font-weight: 16px;
+  font-weight: 700;
+}
+
+.filters select {
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  width: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  height: 38px;
+}
+
+.filters input {
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  width: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: -0.5px;
+}
+  
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.day {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: #e0e0e0;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  color: #000;
+}
+
+.day.green { background-color: #7be97b; }
+.day.grey { background-color: #c0c0c0; }
+
+
+.orange-btn {
+  padding: 10px 16px;
+  background-color: rgb(255, 72, 0);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+  width: 100%;
+}
+
+.orange-btn:hover {
+  background-color: rgb(218, 62, 0);
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.blue-btn {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.blue-btn:hover {
+  background-color: #0056b3;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
