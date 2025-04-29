@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/style.css';
 import '../css/Calendar.css';
+import { API_BASE_URL } from '../config'
 
 function AdminDashboard() {
   const [user, setUser] = useState({});
@@ -15,7 +16,7 @@ function AdminDashboard() {
   // Fetch user and check role
   const fetchUser = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/me/`, {
+      const res = await axios.get(`${API_BASE_URL}/api/users/me/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -36,7 +37,7 @@ function AdminDashboard() {
   const fetchAttendance = async () => {
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_API_BASE_URL}/api/attendance/records/?month=${month}&year=${year}`,
+        `${API_BASE_URL}/api/attendance/records/?month=${month}&year=${year}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setAttendance(res.data);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
 const access = localStorage.getItem('access');
 
@@ -19,7 +20,7 @@ function Navbar() {
       const token = localStorage.getItem('access');
       if (token) {
         try {
-          const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/users/me/`, {
+          const res = await fetch(`${API_BASE_URL}/api/users/me/`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           const data = await res.json();
@@ -53,7 +54,7 @@ function Navbar() {
 
   const navigatetodashboard = async () => {
     try {
-      const userRes = await axios.get('${process.env.REACT_APP_API_BASE_URL}/api/users/me/', {
+      const userRes = await axios.get(`${API_BASE_URL}/api/users/me/`, {
         headers: { Authorization: `Bearer ${access}` }
       });
       

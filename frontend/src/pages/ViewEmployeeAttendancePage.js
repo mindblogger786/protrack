@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import '../css/EmployeeListPage.css';
 import '../css/ViewEmployeeAttendance.css';
+import { API_BASE_URL } from '../config'
 
 function ViewEmployeeAttendancePage() {
   const { employeeId } = useParams();
@@ -13,7 +14,7 @@ function ViewEmployeeAttendancePage() {
 
   const fetchAttendance = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/user/${employeeId}/?month=${month}&year=${year}`, {
+      const res = await axios.get(`${API_BASE_URL}/api/attendance/user/${employeeId}/?month=${month}&year=${year}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAttendance(res.data);
@@ -28,7 +29,7 @@ function ViewEmployeeAttendancePage() {
 
   const handleAction = async (attendanceId, action) => {
     try {
-      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/update/${attendanceId}/`, 
+      await axios.post(`${API_BASE_URL}/api/attendance/update/${attendanceId}/`, 
         { action },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../css/style.css'; // Your existing styling
+import '../css/style.css'; 
+import { API_BASE_URL } from '../config'
 
 function EditEmployeePage() {
   const { id } = useParams();
@@ -22,7 +23,7 @@ function EditEmployeePage() {
 
   const fetchEmployee = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/${id}/`, {
+      const res = await axios.get(`${API_BASE_URL}/api/users/${id}/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEmployee(res.data);
@@ -39,7 +40,7 @@ function EditEmployeePage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/users/${id}/`, employee, {
+      await axios.put(`${API_BASE_URL}/api/users/${id}/`, employee, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('✅ Employee details updated successfully!');

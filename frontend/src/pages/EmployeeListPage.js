@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/EmployeeListPage.css';
 import '../css/style.css';
+import { API_BASE_URL } from '../config'
 
 function EmployeeListPage() {
   const [employees, setEmployees] = useState([]);
@@ -9,7 +10,7 @@ function EmployeeListPage() {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/`, {
+      const res = await axios.get(`${API_BASE_URL}/api/users/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEmployees(res.data);

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/style.css';
 import '../css/AdminAttendanceRequests.css';
+import { API_BASE_URL } from '../config'
 
 function AdminAttendanceRequests() {
   const [requests, setRequests] = useState([]);
@@ -9,7 +10,7 @@ function AdminAttendanceRequests() {
 
   const fetchRequests = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/admin/attendance-requests/`, {
+      const res = await axios.get(`${API_BASE_URL}/api/attendance/admin/attendance-requests/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setRequests(res.data);
@@ -23,7 +24,7 @@ function AdminAttendanceRequests() {
   }, []);
 
   const handleAction = async (id, target, action) => {
-    await axios.patch(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/admin/attendance-requests/${id}/update/`, {
+    await axios.patch(`${API_BASE_URL}/api/attendance/admin/attendance-requests/${id}/update/`, {
       action: action,
       target: target
     }, {

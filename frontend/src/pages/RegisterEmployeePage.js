@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../css/style.css';
+import { API_BASE_URL } from '../config'
 
 function RegisterEmployeePage() {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ function RegisterEmployeePage() {
     e.preventDefault();
 
     try {
-      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/users/register/`, formData, {
+      await axios.post(`${API_BASE_URL}/api/users/register/`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'

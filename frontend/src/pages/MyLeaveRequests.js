@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/style.css'; 
 import '../css/MyLeaveRequests.css'; 
+import { API_BASE_URL } from '../config'
 
 function MyLeaveRequests() {
   const [leaves, setLeaves] = useState([]);
@@ -11,7 +12,7 @@ function MyLeaveRequests() {
 
   const fetchLeaves = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/leave/my-leaves/?month=${month}&year=${year}`, {
+      const res = await axios.get(`${API_BASE_URL}/api/attendance/leave/my-leaves/?month=${month}&year=${year}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setLeaves(res.data);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../css/ApplyLeavePage.css'; // Optional: for extra styles
+import '../css/ApplyLeavePage.css'; 
+import { API_BASE_URL } from '../config'
 
 function ApplyLeavePage() {
   const [leaveType, setLeaveType] = useState('sick');
@@ -22,7 +23,7 @@ function ApplyLeavePage() {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/attendance/leave/apply-leave/`,
+        `${API_BASE_URL}/api/attendance/leave/apply-leave/`,
         {
           leave_type: leaveType,
           start_date: startDate,

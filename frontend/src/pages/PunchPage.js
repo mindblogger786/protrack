@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Webcam from 'react-webcam';
+import { API_BASE_URL } from '../config'
 
 function PunchPage() {
   const [currentTime, setCurrentTime] = useState('');
@@ -41,7 +42,7 @@ function PunchPage() {
 
   const checkTodayPunchStatus = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/records/`, {
+      const res = await axios.get(`${API_BASE_URL}/api/attendance/records/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -69,7 +70,7 @@ function PunchPage() {
     const endpoint = punchedIn ? 'punch-out' : 'punch-in';
   
     try {
-      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/${endpoint}/`, {
+      await axios.post(`${API_BASE_URL}/api/attendance/${endpoint}/`, {
         photo: image,
         location: location
       }, {
@@ -82,7 +83,7 @@ function PunchPage() {
       alert(`Successfully ${punchedIn ? 'punched out' : 'punched in'}!`);
       setPunchedIn(!punchedIn);
       
-      const userRes = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/me/`, {
+      const userRes = await axios.get(`${API_BASE_URL}/api/users/me/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       

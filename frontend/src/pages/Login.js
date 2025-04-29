@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getUserInfo } from '../utils/auth';
 import '../css/style.css';
+import { API_BASE_URL } from '../config'
 
 
 function Login() {
@@ -19,7 +20,7 @@ function Login() {
 
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/users/login/`,
+        `${API_BASE_URL}/api/users/login/`,
         { username, password },
         { headers: { 'Content-Type': 'application/json' } }
       );
@@ -28,7 +29,7 @@ function Login() {
       localStorage.setItem('access', access);
       localStorage.setItem('refresh', res.data.refresh);
 
-      const userRes = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/me/`, {
+      const userRes = await axios.get(`${API_BASE_URL}/api/users/me/`, {
         headers: { Authorization: `Bearer ${access}` }
       });
       

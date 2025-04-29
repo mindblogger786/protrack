@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/style.css';
 import '../css/ExportAttendancePage.css';
+import { API_BASE_URL } from '../config'
 
 function ExportAttendancePage() {
   const [employees, setEmployees] = useState([]);
@@ -17,7 +18,7 @@ function ExportAttendancePage() {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/`, {
+      const res = await axios.get(`${API_BASE_URL}/api/users/`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEmployees(res.data);
@@ -32,7 +33,7 @@ function ExportAttendancePage() {
       return;
     }
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/attendance/admin/export-attendance/?month=${month}&year=${year}&employee_id=${employeeId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/attendance/admin/export-attendance/?month=${month}&year=${year}&employee_id=${employeeId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
