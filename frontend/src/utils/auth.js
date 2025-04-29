@@ -1,4 +1,4 @@
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 export const getUserInfo = () => {
   const username = localStorage.getItem('username');
@@ -6,7 +6,7 @@ export const getUserInfo = () => {
   let decoded = null;
   if (token) {
     try {
-      decoded = jwt_decode(token)
+      decoded = jwtDecode(token);
       return decoded;
     } catch (err) {
       console.error("Invalid token", err);
