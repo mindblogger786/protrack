@@ -3,9 +3,9 @@ import axios from 'axios';
 import { getUserInfo } from '../utils/auth';
 import '../css/style.css';
 
-const user = getUserInfo();
 
 function Login() {
+  // const user = getUserInfo();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 

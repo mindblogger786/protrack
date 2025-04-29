@@ -17,7 +17,7 @@ import { getUserInfo } from './utils/auth';
 import './css/style.css';
 
 function App() {
-  const user = getUserInfo();
+  // const user = getUserInfo();
 
   return (
     <Router>
