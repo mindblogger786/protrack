@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../css/ApplyLeavePage.css'; 
-import { API_BASE_URL } from '../config'
+
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 function ApplyLeavePage() {
   const [leaveType, setLeaveType] = useState('sick');

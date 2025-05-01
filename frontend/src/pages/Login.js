@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getUserInfo } from '../utils/auth';
 import '../css/style.css';
-import { API_BASE_URL } from '../config'
 
+const API_BASE_URL = process.env.REACT_APP_API_URL;
+
+console.log("backend url:", API_BASE_URL);
 
 function Login() {
-  // const user = getUserInfo();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -32,10 +33,8 @@ function Login() {
       const userRes = await axios.get(`${API_BASE_URL}/api/users/me/`, {
         headers: { Authorization: `Bearer ${access}` }
       });
-      
-      const user = userRes.data;
 
-      if (user.role === 'ADMIN') {
+      if (userRes.data.role === 'ADMIN') {
         window.location.href = '/admin-dashboard';
       } else {
         window.location.href = '/dashboard';

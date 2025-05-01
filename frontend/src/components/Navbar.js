@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { API_BASE_URL } from '../config';
+
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 const access = localStorage.getItem('access');
 

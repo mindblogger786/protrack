@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/EmployeeListPage.css';
 import '../css/style.css';
-import { API_BASE_URL } from '../config'
+
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 function EmployeeListPage() {
   const [employees, setEmployees] = useState([]);

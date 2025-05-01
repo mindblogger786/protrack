@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/Calendar.css'; 
 import '../css/style.css'; 
-import { API_BASE_URL } from '../config'
+
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 function EmployeeDashboard() {
   const [user, setUser] = useState({});

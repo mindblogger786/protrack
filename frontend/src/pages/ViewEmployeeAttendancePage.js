@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import '../css/EmployeeListPage.css';
 import '../css/ViewEmployeeAttendance.css';
-import { API_BASE_URL } from '../config'
+
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 function ViewEmployeeAttendancePage() {
   const { employeeId } = useParams();
